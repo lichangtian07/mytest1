@@ -1,0 +1,13 @@
+
+
+git add mysqlTest
+
+git commit -m "[info]: 添加mysql的里excise程序" 
+
+
+git push 
+
+
+
+
+

@@ -1,0 +1,5 @@
+
+
+gcc -Wall  mysqltest1.c -o mysqltest1 -lmsqlclient 
+
+
