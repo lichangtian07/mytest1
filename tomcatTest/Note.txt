@@ -1,0 +1,63 @@
+
+
+# tar -zxvf apache-tomcat-9.0.0.M21.tar.gz
+
+# mkdir /usr/tomcat
+
+# sudo mv apache-tomcat-9.0.0.M21 /usr/tomcat/
+
+# tar -zxvf jdk-8u121-linux-i586.tar.gz
+
+# mkdir /usr/java
+
+# sudo  mv jdk1.8.0_121/ /usr/java/
+
+# sudo vim /etc/profile
+
+
+export JAVA_HOME=/usr/java/jdk1.8.0_121
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+
+# source /etc/profile 
+
+# java -version
+java version "1.8.0_121"
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) Client VM (build 25.121-b13, mixed mode)
+
+# /usr/tomcat/apache-tomcat-9.0.0.M21/bin/startup.sh
+# /usr/tomcat/apache-tomcat-9.0.0.M21/bin/shutdown.sh
+# /usr/tomcat/apache-tomcat-9.0.0.M21/bin/catalina.sh
+
+
+
+# ./tomcat.sh  start|restart|reload|stop
+
+# vim /usr/tomcat/apache-tomcat-9.0.0.M21/config/server.xml
+
+port = "8080" 
+
+
+# vim /usr/tomcat/apache-tomcat-9.0.0.M21/config/tomcat-users.xml
+<user username="admin" password="admin" roles="admin,manager"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
