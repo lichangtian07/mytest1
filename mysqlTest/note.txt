@@ -1,4 +1,43 @@
 
+#sudo aptitude update
+
+
+#sudo aptitude install mysql-server 
+#sudo aptitude search mysql-server
+i   mysql-server            - MySQL database server (metapackag
+i A mysql-server-5.7        - MySQL database server binaries an
+i A mysql-server-core-5.7   - MySQL database server binaries   
+v   virtual-mysql-server    -                                  
+v   virtual-mysql-server-co -  
+
+
+#sudo aptitude install mysql-client 
+#sudo aptitude search mysql-client
+p   mysql-client            - MySQL database client (metapackag
+i A mysql-client-5.7        - MySQL database client binaries   
+i A mysql-client-core-5.7   - MySQL database core client binari
+v   virtual-mysql-client    -                                  
+v   virtual-mysql-client-co -   
+
+
+#sudo aptitude install libmysqlclient-dev
+#sudo aptitude search libmysqlclient-dev
+i   libmysqlclient-dev      - MySQL database development files
+
+
+#mysql -u root -p
+
+
+#show databases
+
+
+#use mysql
+
+
+#show tables
+
+
+
 
 gcc -Wall  mysqltest1.c -o mysqltest1 -lmsqlclient 
 
