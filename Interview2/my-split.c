@@ -31,11 +31,15 @@ void usage()
 	printf("%s\n",  usagenote);
 }
 
+/****************************************************************/
+/************************* Local  FUNCTION **********************/
+/***************************************************************/
+
 /*
 **
 ** 主要处理函数：splitHadnle
-** 输入：
-** 输出：
+**		   输入：文件名称 每个子文件大小 
+**         输出： -1   1
 */
 
 int splitHandle(char * filename , int eachFileBytes)
@@ -58,6 +62,11 @@ int splitHandle(char * filename , int eachFileBytes)
 		fprintf(stderr,"can't open the file %s \n", filename);
 		return -1;
 	}
+	/*
+	**基本原则:读取文件大小不能超过buffer的大小
+	**两种情况:1. BUFFSIZE 小于eachFileBytes  每次读取的大小为BUFFSIZE = realReadBytes 
+	**         2. BUFFSIZE 大于eachFileBytes  每次读取的大小为eachFIleBytes = realReadBytes
+	*/
 	if( eachFileBytes > BUFFSIZE )	
 	{
 		realReadBytes = BUFFSIZE;
@@ -88,6 +97,7 @@ int splitHandle(char * filename , int eachFileBytes)
 	}
 	else
 	{	
+		//当BUFFSIZE 大于 realReadBytes 
 		realReadBytes = eachFileBytes;
 		while(readRet = fread( buffer, 1, realReadBytes, fp))
 		{
@@ -114,6 +124,9 @@ int splitHandle(char * filename , int eachFileBytes)
 	return 0;
 }
 
+/****************************************************************/
+/************************* Test  FUNCTION **********************/
+/***************************************************************/
 int main(int argc, char *argv[])
 {
 	char				filename[FNSIZE];
