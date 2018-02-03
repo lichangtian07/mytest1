@@ -61,27 +61,28 @@ int splitHandle(char * filename , int eachFileBytes)
 	if( eachFileBytes > BUFFSIZE )	
 	{
 		realReadBytes = BUFFSIZE;
+		totalBytes = eachFileBytes;
 		while(readRet = fread( buffer, sizeof(char), realReadBytes, fp))
 		{
 			realWriteBytes = readRet;
-			if(totalBytes == 0) // 每一个子文件开始时需要新建一个文件
+			if(totalBytes == eachFileBytes) // 每一个子文件开始时需要新建一个文件
 			{
 				memset(new_filename, 0, 2*FNSIZE);
 				sprintf(new_filename, "%s.%d", filename, tag ++);
 				fpnew = fopen(new_filename, "w");
 			}
 			fwrite(buffer,sizeof(char), realWriteBytes,fpnew);
-			totalBytes += realWriteBytes;
+			totalBytes -= realWriteBytes;
 				
-			if (totalBytes == eachFileBytes  )
+			if (totalBytes < BUFFSIZE ) //当totalBytes小于buffer的size大小时，将realBytes设置为totalBytes 
 			{
-				fclose(fpnew);
-				totalBytes = 0;
+				realReadBytes = totalBytes;
 			}
-			if(realWriteBytes < realReadBytes)
+			if(totalBytes == 0) // 当totalBytes读取完成后,重新设置条件
 			{
 				fclose(fpnew);
-				break;
+				totalBytes = eachFileBytes;
+				realReadBytes = BUFFSIZE;
 			}
 		}	
 	}
