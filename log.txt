@@ -9,5 +9,12 @@ git push
 
 
 
+t commit -m "[info]: KMP 练习以及约瑟夫环练习"
+[master 856ff3a] [info]: KMP 练习以及约瑟夫环练习
+4 files changed, 347 insertions(+)
+create mode 100755 JesphLoop/JesphLoop
+create mode 100644 JesphLoop/JesphLoop.c
+create mode 100755 kmptest/kmp
+create mode 100644 kmptest/kmp.c
 
 
