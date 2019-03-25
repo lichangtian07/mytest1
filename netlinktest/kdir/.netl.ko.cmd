@@ -1,0 +1,1 @@
+cmd_/home/liqiang/workdir/githubtest1/netlinktest/kdir/netl.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/liqiang/workdir/githubtest1/netlinktest/kdir/netl.ko /home/liqiang/workdir/githubtest1/netlinktest/kdir/netl.o /home/liqiang/workdir/githubtest1/netlinktest/kdir/netl.mod.o ;  true
