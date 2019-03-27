@@ -10,19 +10,12 @@ int centerExpend(char *s, int left, int right)
     int L = left;
     int R = right;
    
-    printf("1 ---------------------\n");
-    printf("s[%d] %c \n", L, s[L]);
-    printf("s[%d] %c \n", R, s[R]);
-
     while( L >= 0 && R < strlen(s) && s[L] == s[R] )
     {
         L -- ;
         R ++ ;
-        printf("s[%d] %c \n", L, s[L]);
-        printf("s[%d] %c \n", R, s[R]);
     }
 
-    printf("2 ---------------------\n");
     return  R - L - 1;
 }
 
@@ -53,7 +46,6 @@ char* longestPalindrome(char* s)
         lenOdd = centerExpend(s, i, i);
         lenEven = centerExpend(s, i, i+1);
         maxlen = lenOdd > lenEven ? lenOdd : lenEven ;
-
         if( maxlen >  end -start)
         {
             start = i - (maxlen - 1) / 2;
@@ -61,10 +53,8 @@ char* longestPalindrome(char* s)
         }
 
     }
-    printf("start : %d \n",start);
-    printf("maxlen : %d \n",maxlen);
     loc = start;
-
+	maxlen = end - start + 1;
 out:
     pRet = (char *)malloc(maxlen * sizeof(char) + 1);  
     memset(pRet, 0, maxlen * sizeof(char) + 1);
