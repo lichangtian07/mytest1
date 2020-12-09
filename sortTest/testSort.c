@@ -1,18 +1,9 @@
 
 #include <stdio.h>
-#include "CreateData.c"
-#include "BubbleSort.c"
+#include "sortLibs.h"
+
 #define ARRAYLEN 6
 
-void printArray(int a[], int len)
-{
-	int i;
-	for(i = 0; i < len; i ++)
-	{
-		printf("%d ", a[i]);
-	}
-	printf("\n");
-}
 
 int main()
 {
@@ -25,7 +16,7 @@ int main()
 		a[i] = 0;
 	}
 
-	if( ! CreateData(a, ARRAYLEN, 1, 100))
+	if(!createData(a, ARRAYLEN, 1, 100))
 	{
 		printf(" 生成随机数失败，退出 \n");
 		getchar();
@@ -36,13 +27,13 @@ int main()
 	printf("生成的随机数，原始数据为： \n");
 	
 	printArray(a, ARRAYLEN);
-	BubbleSort(a, ARRAYLEN);
+	bubbleSort(a, ARRAYLEN);
 
 	printf("排序后数据： \n");
 
 	printArray(a, ARRAYLEN);
 
-	getchar();
+	//getchar();
 	return 0;
 }
 
